@@ -17,14 +17,14 @@ defmodule PentoWeb.Router do
     plug :accepts, ["json"]
   end
 
-
+  live_session :default, on_mount: PentoWeb.UserAuthLive do
   scope "/", PentoWeb do
     pipe_through [:browser, :require_authenticated_user]
-    # live_session :default, on_mount: PentoWeb.UserAuthLive do
+
       live "/guess", WrongLive
-    # end
     get "/users/settings", UserSettingsController, :edit
   end
+end
 
   # Other scopes may use custom stacks.
   # scope "/api", PentoWeb do
