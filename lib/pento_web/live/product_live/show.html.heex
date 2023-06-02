@@ -13,6 +13,16 @@
   </.modal>
 <% end %>
 
+<article class="column">
+<img
+  alt="product image" width="200" height="200"
+  src={
+    Routes.static_path(
+      @socket,
+      (@product.image_upload || ~s[/image/default-thumbnail.jpg])
+    )
+  }>
+</article>
 <ul>
 
   <li>
@@ -36,6 +46,5 @@
   </li>
 
 </ul>
-
 <span><%= live_patch "Edit", to: Routes.product_show_path(@socket, :edit, @product), class: "button" %></span> |
 <span><%= live_redirect "Back", to: Routes.product_index_path(@socket, :index) %></span>
