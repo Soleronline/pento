@@ -106,4 +106,8 @@ defmodule Pento.Catalog do
   def markdown_product(%Product{} = product, amount) do
     Product.price_decrease(product, amount)
   end
+
+  def list_products_with_user_rating(user) do
+    Product.Query.with_user_ratings(user) |> Repo.all()
+  end
 end

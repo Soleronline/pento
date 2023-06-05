@@ -10,6 +10,8 @@ defmodule Pento.Catalog.Product do
     field :image_upload, :string
 
     timestamps()
+
+    has_many :ratings, Rating
   end
 
   @doc false

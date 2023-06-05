@@ -46,7 +46,6 @@ defmodule PentoWeb.WrongLive do
 
 
   def handle_event("guess", %{"number" => guess} = data, socket) do
-IO.puts(" #{is_integer(socket.assigns.number)} -- #{is_integer(guess)} - #{socket.assigns.number === guess}")
     if socket.assigns.number == guess|>String.to_integer do
       score = socket.assigns.score + 1
       number = get_number()
